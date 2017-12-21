@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<title>Amuzon</title>
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="css/shop-homepage.css" rel="stylesheet" />
+
+<link href="/css/animate.css" rel="stylesheet" />
+<link href="/css/font-awesome.min.css" rel="stylesheet" />
+<link href="/css/jquery-ui.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#">WebNote</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" href="#">Home
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><button class="btn btn-danger"
+							onclick="quit();">Quit</button></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-lg-2">
+				<h1 class="my-4">WebNote</h1>
+				<div class="list-group">
+					<a class="list-group-item active" href="#" onclick="getPreviews();">Tout</a>
+					<a class="list-group-item" href="#" onclick="getCategory($(this));">Forte</a>
+					<a class="list-group-item" href="#" onclick="getCategory($(this));">Moyenne</a>
+					<a class="list-group-item" href="#" onclick="getCategory($(this));">Faible</a>
+				</div>
+
+			</div>
+			<!-- /.col-lg-2 -->
+
+			<div class="col-lg-8">
+
+				<h4 class="my-4">
+					<button id="btnAddProduct" type="button" class="btn btn-success"
+						data-toggle="modal" data-target="#myModal" ><i class="fa fa-plus" aria-hidden="true"></i>
+						 Add Note </button>
+					<button id="btnImport" type="button" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i> Import File</button>
+				</h4>
+
+				<div id="myModal" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+						<div class="modal-content" id="myContent">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Add a Note</h4>
+							</div>
+							<div class="modal-body" id="myBody">
+								<div class="form-group">
+									<label for="titleinput">Note:</label> <input type="text"
+										class="form-control" id="messageinput"></input>
+								</div>
+								<div class="form-group" id="myForm">
+									<!-- Datepicker -->
+									<div>Echeance:<input type="text" id="datepicker"/></div>
+								</div>
+
+								<div class="form-group">
+									<label for="categoryselect">Priorité:</label> <select
+										class="form-control" id="priorityselect">
+										<option>Forte</option>
+										<option>Moyenne</option>
+										<option>Faible</option>
+									</select>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary"
+									data-dismiss="modal" onclick="addProduct();">Confirm</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="previews" class="row"></div>
+
+			</div>
+			<!-- /.col-lg-8 -->
+			
+			<div class="col-lg-2">
+				<div class="list-group">
+					<a class="list-group-item active" href="#" onclick="getPreviews();">Tout</a>
+					<a class="list-group-item" href="#" onclick="getByDate($(this));">Jour</a>
+					<a class="list-group-item" href="#" onclick="getByDate($(this));">Semaine</a>
+					<a class="list-group-item" href="#" onclick="getByDate($(this));">Mois</a>
+				</div>
+			</div>
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/ajaxhomepage.js"></script>
+
+</body>
+
+</html>
